@@ -1,0 +1,20 @@
+<?php
+/**
+ * @file
+ * Tasks running after installation
+ *
+ * Currently includes resetting all the aliases to language neutral
+ */
+
+
+/**
+ * Implements hook_enable().
+ */
+function neutral_paths_enable() {
+  $num_updated = db_update('url_alias')
+    -> fields(array('language' => LANGUAGE_NONE))
+    -> condition('language', LANGUAGE_NONE, '!=')
+    -> execute();
+  if ($num_updated > 0)
+    drupal_set_message(t('@num aliases were reset to language neutral', array('@num' => $num_updated)));
+}

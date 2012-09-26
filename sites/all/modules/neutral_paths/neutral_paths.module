@@ -1,0 +1,16 @@
+<?php
+
+function neutral_paths_path_insert($path) {
+  _neutral_paths_fix($path['pid']);
+}
+
+function neutral_paths_path_update($path) {
+  _neutral_paths_fix($path['pid']);
+}
+
+function _neutral_paths_fix($pid) {
+  db_update('url_alias')
+    ->fields(array('language' => LANGUAGE_NONE))
+    ->condition('pid', $pid)
+    ->execute();
+}

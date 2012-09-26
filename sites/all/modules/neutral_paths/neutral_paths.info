@@ -1,0 +1,5 @@
+name = Language Neutral Paths
+description = Makes all url aliases language neutral
+
+core = "7.x"
+version = "0.2"
