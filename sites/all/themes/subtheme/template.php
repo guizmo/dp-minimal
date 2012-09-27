@@ -33,7 +33,7 @@ function subtheme_preprocess_search_block_form(&$vars) {
  * Custom classes provided by Fusion Core and IE specific stylesheets
  */
 
-/*function subtheme_preprocess_html(&$vars) {
+function subtheme_preprocess_html(&$vars) {
   // give <body> tag a unique id depending on PAGE PATH
   $path_alias = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', drupal_get_path_alias($_GET['q'])));
   if ($path_alias == 'node') {
@@ -42,6 +42,10 @@ function subtheme_preprocess_search_block_form(&$vars) {
   else {
     $vars['body_id'] = 'page-'. $path_alias;
   }
+
+  $path = drupal_get_path('theme', 'subtheme');
+  drupal_add_js(array('theme_path' => array('path' => $path)), 'setting');
+
 
   // Add to the array of body classes
   // layout classes
@@ -79,11 +83,6 @@ function subtheme_preprocess_search_block_form(&$vars) {
 
   $vars['classes_array'] = array_filter($vars['classes_array']);
 
-  // Add ie6, ie7, ie8 & ie9 stylesheets
-  drupal_add_css(path_to_theme() . '/css/ie6-fixes.css',array('group' => CSS_THEME,'browsers' => array('IE' => 'IE 6','!IE' => FALSE,),'every_page' => TRUE,));
-  drupal_add_css(path_to_theme() . '/css/ie7-fixes.css',array('group' => CSS_THEME,'browsers' => array('IE' => 'IE 7','!IE' => FALSE,),'every_page' => TRUE,));
-  drupal_add_css(path_to_theme() . '/css/ie8-fixes.css',array('group' => CSS_THEME,'browsers' => array('IE' => 'IE 8','!IE' => FALSE,),'every_page' => TRUE,));
-  drupal_add_css(path_to_theme() . '/css/ie9-fixes.css',array('group' => CSS_THEME,'browsers' => array('IE' => 'IE 9','!IE' => FALSE,),'every_page' => TRUE,));
 
   // Doctypes and RDF
   if (module_exists('rdf')) {
@@ -98,7 +97,7 @@ function subtheme_preprocess_search_block_form(&$vars) {
     $vars['rdf']->profile = '';
   }
 }
-*/
+
 
 /**
  * Add preface, postscript, & footers classes with number of active sub-regions

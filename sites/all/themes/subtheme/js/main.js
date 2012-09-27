@@ -3,8 +3,8 @@ Modernizr.load([
         load: 'sites/all/themes/subtheme/js/jquery-1.7.1.min.js',
         complete: function () {
             Modernizr.load([
-            	'/sites/all/themes/subtheme/js/jquery.validate.min.js',
-            	'/sites/all/themes/subtheme/js/custom.js'
+            	Drupal.settings.basePath+Drupal.settings.theme_path.path+'/js/jquery.validate.min.js',
+            	Drupal.settings.basePath+Drupal.settings.theme_path.path+'/js/custom.js'
             ]);
 
         }
