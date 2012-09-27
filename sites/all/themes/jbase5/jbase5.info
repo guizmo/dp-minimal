@@ -9,7 +9,7 @@ core = 7.x
 engine = phptemplate
 
 ; Stylesheets  ---------------------------------------------------------------
-; We use [screen] instead of [all] to avoid browser styles affecting 
+; We use [screen] instead of [all] to avoid browser styles affecting
 ; other media types. IE stylesheets are loaded through template.php
 
 ; Theme stylesheet
@@ -24,9 +24,6 @@ stylesheets[screen][] = css/style.css
 ; html5.js is required for IE to understand the new elements like article
 ; http://remysharp.com/2009/01/07/html5-enabling-script/
 
-scripts[] = js/modernizr-2.5.3.custom.min.js
-scripts[] = js/yepnope.ie-prefix.js
-scripts[] = js/main.js
 
 ; Plugins --------------------------------------------------------------------
 ;plugins[panels][layouts] = plugins/layouts
